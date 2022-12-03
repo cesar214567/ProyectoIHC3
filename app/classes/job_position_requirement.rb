@@ -8,8 +8,8 @@ class JobPositionRequirement
     def self.generate
         data = {}
         data[:job_position] = JobPosition.one
-        data[:required_experience] = rand(0.5..3.0).round(2)
-        data[:required_title] = [false,true].sample
+        data[:required_experience] = rand(0.5..1.0).round(2)
+        data[:required_title] = rand(0.0..1.0) > 0.7
         data[:companyName] = Faker::Company.name
         @@last = data
     end

@@ -8,7 +8,7 @@ class Cv
         data[:fullname] = Faker::Name.name
         data[:age] = (19..50).to_a.sample
         value *= 0.8 + (50 - data[:age])/30.0
-        data[:hasTitle] = [true,false].sample && data[:age] > 22
+        data[:hasTitle] = rand(0.0..1.0) < 0.7 && data[:age] > 22
         data[:titleInstitute] =  data[:hasTitle]? Faker::University.name : " "
         data[:titleName] = data[:hasTitle]?  "Licenciated in #{Title.one}" : " "
         data[:languages] = Language.random(5,1)
@@ -21,7 +21,7 @@ class Cv
             job = {}
             job[:companyName] = Faker::Company.name
             job[:months] = (1..18).to_a.sample
-            if rand(0.0..1.0) < 0.33 
+            if rand(0.0..1.0) < 0.66 
                 job[:jobPosition] = last_job_position[:job_position]
                 usefull_months += job[:months]
             else
