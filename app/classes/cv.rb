@@ -38,10 +38,13 @@ class Cv
             data[:experienceYears] = ((1..30).to_a.sample/12.0).round(2)
             value *= 2
         end
-        if (usefull_months/12.0).round(2) >= last_job_position[:required_experience] && data[:hasTitle] == last_job_position[:required_title]
+        unless (usefull_months/12.0).round(2) < last_job_position[:required_experience] || (last_job_position[:required_title] && !data[:hasTitle])
             data[:is_valid] = true
         else
             data[:is_valid] = false
+        end
+        if 
+
         end
         data[:points] = value.round(2)
         return data
