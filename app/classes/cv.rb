@@ -43,9 +43,6 @@ class Cv
         else
             data[:is_valid] = false
         end
-        if 
-
-        end
         data[:points] = value.round(2)
         return data
     end
