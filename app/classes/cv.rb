@@ -20,8 +20,8 @@ class Cv
         jobs_done.times do 
             job = {}
             job[:companyName] = Faker::Company.name
-            job[:months] = (1..18).to_a.sample
-            if rand(0.0..1.0) < 0.66 
+            job[:months] = (1..16).to_a.sample
+            if rand(0.0..1.0) < 0.4 
                 job[:jobPosition] = last_job_position[:job_position]
                 usefull_months += job[:months]
             else
